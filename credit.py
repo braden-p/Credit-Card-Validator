@@ -1,13 +1,11 @@
 # FUNCTION DEFINITIONS
 
-def getLength(int):
+def getLength(num):
     '''
     accepts an integer, returns the number of digits in that integer
     '''
-    length = 0
-    while int != 0:
-        int = int / 10
-        length += 1
+    stringnum = str(num)
+    length = len(stringnum)
     return length
 
 def getLastDigit(int):
@@ -60,7 +58,7 @@ def calculateChecksum(ccnum):
         ccnumb = shorten(ccnumb) # shorten ccnumb by 1
     return sum
 
-
+""" 
 # Get Credit Card Number
 while True:
         try:
@@ -72,6 +70,7 @@ while True:
 
 # Get Length of Credit Card Number
 cclength = getLength(ccnum)
+print('cclength: ', cclength)
 
 # Check if A Valid CC Number Length
 validLengths = [13, 15, 16]
@@ -93,3 +92,4 @@ else:
     else:
         print('INVALID')
 
+ """
