@@ -24,5 +24,5 @@ Mastercard. Credit card numbers issued from other companies will be considered i
 * This program will only work with credit card numbers of length 13, 15, or 16 digits.
 * This program will only work with Mastercard numbers starting in numbers 51, 52,
 53, 54, or 55.
-* The C version of this programwas made for the class CS50x = Introduction to Computer Science offered by Harvard University. It uses the cs50 header file which is not a standard header. This header includes the function get_long(), which is used
+* The C version of this program was made for the class CS50x - Introduction to Computer Science offered by Harvard University. It uses the cs50 header file which is not a standard header. This header includes the function get_long(), which is used
 to accept an integer input from the user.
