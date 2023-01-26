@@ -41,6 +41,9 @@ def getFirst2Digits(int):
     return int
 
 def calculateChecksum(ccnum):
+    '''
+    accepts a credit card number, returns the checksum of the cc number
+    '''
     sum = 0
     ccnumb = ccnum
     for x in range(cclength):
@@ -55,6 +58,8 @@ def calculateChecksum(ccnum):
             nextnumshorter = shorten(nextnum)   # shorten by 1
             sum += getLastDigit(nextnumshorter) # get last digit, add it to sum
         ccnumb = shorten(ccnumb) # shorten ccnumb by 1
+    return sum
+
 
 # Get Credit Card Number
 while True:
@@ -63,29 +68,28 @@ while True:
             ccnum = int(ccnum)
             break
         except ValueError:
-            print('Input Invalid, please enter only numbers with no spaces.')
+            print('Input invalid, please enter only numbers with no spaces.')
 
 # Get Length of Credit Card Number
 cclength = getLength(ccnum)
 
-# Check if A Valid CC Number Length, if not, print INVALID
+# Check if A Valid CC Number Length
 validLengths = [13, 15, 16]
-if cclength not in validLengths:
+if cclength not in validLengths:  # if not correct length, print INVALID
     print('INVALID')
 else:
-    # Calculate Checksum
-    sum = 0
-    ccnumb = ccnum
-    for x in range(cclength):
-        sum += getLastDigit(ccnumb)             # add last digit to sum
-        ccnumb = shorten(ccnumb)                # shorten ccnumb by 1
-        nextnum = (getLastDigit(ccnumb)) * 2    # get last digit, multiply by 2
-        lastdigitlength = getLength(nextnum)    # get length of lastdigit
-        if lastdigitlength == 1:                # if one digit, add to sum
-            sum += nextnum
-        else:                                   # otherwise
-            sum += getLastDigit(nextnum)        # get the last digit of nextnum, add it to sum
-            nextnumshorter = shorten(nextnum)   # shorten by 1
-            sum += getLastDigit(nextnumshorter) # get last digit, add it to sum
-        ccnumb = shorten(ccnumb) # shorten ccnumb by 1
+    checksum = calculateChecksum(ccnum)   # Calculate Checksum
+    if getLastDigit(checksum) == 0:       # Validate checksum
+        firstdigit = getFirstDigit(ccnum)
+        first2digits = getFirst2Digits(ccnum)
+        if firstdigit == 4:     # Check if first digit is 4
+            print('VISA')
+        elif first2digits == 34 or first2digits == 37:
+            print('AMEX')
+        elif first2digits > 50 and first2digits < 56:
+            print('MASTERCARD')
+        else:
+            print('INVALID')
+    else:
+        print('INVALID')
 
