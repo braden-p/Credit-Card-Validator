@@ -14,11 +14,11 @@ def getLastDigit(int):
     '''
     return (int % 10)
 
-def shorten(int):
+def shorten(num):
     '''
     accepts an integer, returns the same integer with the last digit removed
     '''
-    return (int / 10)
+    return int(num / 10)
 
 def getFirstDigit(int):
     '''
