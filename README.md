@@ -9,6 +9,7 @@ The program accepts an input of a credit card number, and will calculate if the
 number is syntactically valid using Luhn's Algorithm. In addition to checking the
 validity of the card number, the program will also identify if the credit card number
 is one issued by American Express, Visa, or Mastercard.
+
 ---
 ## INSTRUCTIONS
 * There are two versions of this program available to run:
